@@ -36,6 +36,52 @@ Básicamente lo que nos dice este principio es que si una clase tiene dependenci
 
 ## **2. Repaso del concepto de Polimorfismo**
 
+1. **Ejemplo polimorfismo 0**
+
+![](./img/polimorfismo0.png)
+
+Como podemos ver en la imagen en este ejemplo tenemos dos clases: Una clase base o padre que es la clase A y una clase hija o derivada que es la clase B. Como podemos ver en el main en la línea 28, se define un objeto de la clase B y luego en la línea 30 se llama al método mostrar por lo que esperamos como resultado a = 10, b = 20. Esto es debido a que estamos llamando al método mostrar de la clase B. En la linea acontinuación se vuelve a llamar al método mostrar pero haciendo uso del polimorfismo esta vez se llama al método mostrar de la clase A y el resultado que esperamos es a = 10. En la primera llamada al método mostrar sabemos que a es igual 10 porque así se declara en la clase padre (la clase A) y al ser una atributo de tipo protected se hereda como un atributo privado en la clase hija (la clase B).
+
+![](./img/polimorfismo0-sol.png)
+
+2. **Ejemplo polimorfismo 1**
+
+![](./img/polimorfismo1.png)
+
+En este ejemplo, da igual que estemos usando un objeto de la clase A o la clase B. Al la clase B no tener implementado estos métodos va a utilizar los de la clase padre (la clase A), por lo que los resultados esperados son: Suma 1, Suma 1, y Suma 10
+
+![](./img/polimorfismo1-sol1.png)
+
+Si descomentamos las lineas de código de la linea 14 ahora cuando objeto llama a icrementar sin aplicar el polimorfismo llamamos al incrementar de la clase B.
+
+![](./img/polimorfismo1-sol2.png)
+
+Lo interesante ocurre cuando descomentamos la línea 21. Cuando descomentamos la línea 21 nos devolverá un error esto es debido a que no se puede acceder a las funciones superpuestas de la clase padre, aunque tengan diferentes número de parámetros
+
+3. **Ejemplo polimorfismo 2**
+
+![](./img/polimorfismo2.png)
+
+Como podemos ver en la imagen tenemos cuatro punteros y a través de esos punteros estamos llamando a los métodos VerNombre. Lo curioso es que auque digamos que Pepito es un nuevo estudiante al puntero ser de tipo Persona, cuando llamamos al método VerNombre se esta llamando al del Persona y no al de estudiante. Es decir se ejecuta el método VerNombre que se definio a la clase base. Entonces la salida es la correspondiente:
+
+![](./img/polimorfismo2-sol.png)
+
+4. **Ejemplo polimorfismo 3**
+
+![](./img/polimorfismo3.png)
+
+Si comparamos el ejemplo anterior con el actual es el mismo menos que en la línea 10 le añadimos virtual delante. Gracias al virtual nos da un resultado totalmente diferente. Lo interesante cuando defeniamos antes a Pepito como un estudiante y llamabamos al método VerNombre era que llamará al método de la clase hija estudiante pero no era así. Ahora con virtual en vez de llamar al método de la clase padre llamamos al método de la clase hija por lo que el resultado nos queda así:
+
+![](./img/polimorfismo3-sol.png)
+
+5. **Ejemplo polimorfismo 4**
+
+![](./img/polimorfismo4.png)
+
+En este caso funciona igual que el caso anterior pero con referencias. Como sigue siendo un método virtual VerNombre, lo seguirá siendo en las clase heredadas así que la solución será la siguiente: 
+
+![](./img/polimorfismo4-sol.png)
+
 ## **3. Patrón estrategia**
 
 ## **4. Análisis de algoritmos**

@@ -31,7 +31,7 @@ class Estudiante : public Persona {
 };
 
 int main() {
-   Estudiante Pepito("Jose");
+   Estudiante Pepito("Pepito");
    Empleado Carlos("Carlos");
    Persona &rPepito = Pepito; // Referencia como Persona
    Persona &rCarlos = Carlos; // Referencia como Persona
