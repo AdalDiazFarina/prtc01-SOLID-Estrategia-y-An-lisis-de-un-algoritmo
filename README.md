@@ -498,18 +498,18 @@ El programa debe tener la capacidad de generar instancias aleatorias de diferent
 | 600x600  | 3.1835  | 2.95022  |
 | 700x700  | 4.79097  | 4.89846  |
 | 800x800  | 7.53342  | 6.71118  |
-| 900x900  | 11.269  |   |
-| 1000x1000  | 15.3087  |   |
-| 1200x1200  | 24.7885  |   |
-| 1400x1400  | 43.4799  |   |
-| 1600x1600  | 68.1939  |   |
-| 1800x1800  | 94.5166  |   |
-| 2000x2000  | 133.717  |   |
-| 2500x2500  | 263.433  |   |
-| 3000x3000  | 477.265  |   |
+| 900x900  | 11.269  | 10.4553  |
+| 1000x1000  | 15.3087  | 13.2763  |
+| 1200x1200  | 24.7885  | 23.5935  |
+| 1400x1400  | 43.4799  | 39.2719  |
+| 1600x1600  | 68.1939  | 63.5739  |
+| 1800x1800  | 94.5166  | 82.2386  |
+| 2000x2000  | 133.717  | 117.804  |
+| 2500x2500  | 263.433  | 236.642  |
+| 3000x3000  | 477.265  | 423.215  |
 
-3. Representación gráfica
+3. Conclusión
 
+La conclusión a la que he llegado es que al recorrer por columna es más rápido que por filas. Se supone que al recorrer por filas es más eficiente porque tiene que acceder menos a memoría, pero he hecho diferentes pruebas y me tardo menos al recorrerlo por columnas. Según como lo tengo planteado debería tardar menos por filas debido a que cuando accedemos a la matriz recorriendo por filas accedemos al vector que es la fila en cambio cuando accedemos por columnas tenemos que ir cambiando de vector para poder acceder a los valores de la columna. La verdad que me resulta extraño que sea más eficiente por columna.
 
-
-4. Conclusión
+![](./img/conclusion.png)
