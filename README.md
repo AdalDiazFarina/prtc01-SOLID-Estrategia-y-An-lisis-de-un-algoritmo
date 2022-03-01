@@ -14,7 +14,7 @@ Los principios SOLID son una serie de reglas o directrices a seguir para mejorar
 
 ###  **1. Principio de la responsabilidad única: "Nunca debe haber una razón para cambiar una clase". - Robert Martin.**
 
-El principio de la responsabilidad única lo podemos traducir como cada clase debe hacer una única tarea. Es decir, una clase debe tener una sola responsabilidad. Por ejemplo: si tenemos una clase de números complejos, esta clase debe ser capaz de representar números complejos, de realizar operaciones con números complejos, etc. Su responsabilidad es la de poder tratar con números complejos. Cualquier método que no tenga que ver con los números complejos queda excento de estar en esta clase.
+El principio de la responsabilidad única lo podemos traducir como que cada clase debe hacer una única tarea. Es decir, una clase debe tener una sola responsabilidad. Por ejemplo: si tenemos una clase de números complejos, esta clase debe ser capaz de representar números complejos, de realizar operaciones con números complejos, etc. Su responsabilidad es la de poder tratar con números complejos. Cualquier método que no tenga que ver con los números complejos queda exento de estar en esta clase.
 
 ###  **2. Principio abierto cerrado: "Las entidades de software (clases, módulos, funciones, etc.) deben estar abiertas para la extensión, pero cerradas para la modificación". — Robert Martin parafraseando a Bertrand Meyer.**
 
@@ -26,13 +26,13 @@ El principio de sustitución de Liskov nos indica que deberíamos poder sustitui
 
 ###  **4. Principio de segregación de interfaz: "Los clientes no deben verse obligados a depender de interfaces que no utilizan". — Robert Martin**
 
-Hay que mantener las interfeces pequeñas y cohesivas. Esto es debido a que si una interfaz es muy amplia, se está poniendo una enorme carga de implementación en cualquiera que quiera adherirse a ese contrato. Ejemplo: "cuando un cliente depende de una clase que contiene interfaces que el cliente no usa, pero que otros clientes sí usan, entonces ese cliente se verá afectado por los cambios que esos otros clientes fuerzan en la clase"
+Hay que mantener las interfaces pequeñas y cohesivas. Esto es debido a que si una interfaz es muy amplia, se está poniendo una enorme carga de implementación en cualquiera que quiera adherirse a ese contrato. Ejemplo: "cuando un cliente depende de una clase que contiene interfaces que el cliente no usa, pero que otros clientes sí usan, entonces ese cliente se verá afectado por los cambios que esos otros clientes fuerzan en la clase"
 
 ###  **5. Principio de inversión de dependencia:**
 - **A. Los módulos de alto nivel no deben depender de los módulos de bajo nivel. Ambos deben depender de las abstracciones.**
 - **B. Las abstracciones no deben depender de los detalles. Los detalles deben depender de las abstracciones". — Robert Martin**
 
-Básicamente lo que nos dice este principio es que si una clase tiene dependencias de otra clase, debe basarse en las interfaces de las dependecias en vez de sus tipos concretos. La idea es que nuestra clase dependa de abstracciones. Así si todos los detalles de nuestras abstracciones cambian, nuestra clase seguirá estando a salvo.
+Básicamente lo que nos dice este principio es que si una clase tiene dependencias de otra clase, debe basarse en las interfaces de las dependencias en vez de sus tipos concretos. La idea es que nuestra clase dependa de abstracciones. Así si todos los detalles de nuestras abstracciones cambian, nuestra clase seguirá estando a salvo.
 
 ## **2. Repaso del concepto de Polimorfismo**
 
@@ -42,7 +42,7 @@ En este apartado vamos a repasar sobre Polimorfismo comentado los ejemplos que n
 
 ![](./img/polimorfismo0.png)
 
-Como podemos ver en la imagen en este ejemplo tenemos dos clases: Una clase base o padre que es la clase A y una clase hija o derivada que es la clase B. Como podemos ver en el main en la línea 28, se define un objeto de la clase B y luego en la línea 30 se llama al método mostrar por lo que esperamos como resultado a = 10, b = 20. Esto es debido a que estamos llamando al método mostrar de la clase B. En la linea acontinuación se vuelve a llamar al método mostrar pero haciendo uso del polimorfismo esta vez se llama al método mostrar de la clase A y el resultado que esperamos es a = 10. En la primera llamada al método mostrar sabemos que a es igual 10 porque así se declara en la clase padre (la clase A) y al ser una atributo de tipo protected se hereda como un atributo privado en la clase hija (la clase B).
+Como podemos ver en la imagen en este ejemplo tenemos dos clases: Una clase base o padre que es la clase A y una clase hija o derivada que es la clase B. Como podemos ver en el main en la línea 28, se define un objeto de la clase B y luego en la línea 30 se llama al método mostrar por lo que esperamos como resultado a = 10, b = 20. Esto es debido a que estamos llamando al método mostrar de la clase B. En la línea a continuación se vuelve a llamar al método mostrar pero haciendo uso del polimorfismo esta vez se llama al método mostrar de la clase A y el resultado que esperamos es a = 10. En la primera llamada al método mostrar sabemos que a es igual 10 porque así se declara en la clase padre (la clase A) y al ser una atributo de tipo protected se hereda como un atributo privado en la clase hija (la clase B).
 
 ![](./img/polimorfismo0-sol.png)
 
@@ -54,7 +54,7 @@ En este ejemplo, da igual que estemos usando un objeto de la clase A o la clase 
 
 ![](./img/polimorfismo1-sol1.png)
 
-Si descomentamos las lineas de código de la linea 14 ahora cuando objeto llama a icrementar sin aplicar el polimorfismo llamamos al incrementar de la clase B.
+Si descomentamos las lineas de código de la linea 14 ahora cuando el objeto llama a incrementar sin aplicar el polimorfismo llamamos al incrementar de la clase B.
 
 ![](./img/polimorfismo1-sol2.png)
 
@@ -72,7 +72,7 @@ Como podemos ver en la imagen tenemos cuatro punteros y a través de esos punter
 
 ![](./img/polimorfismo3.png)
 
-Si comparamos el ejemplo anterior con el actual es el mismo menos que en la línea 10 le añadimos virtual delante. Gracias al virtual nos da un resultado totalmente diferente. Lo interesante cuando defeniamos antes a Pepito como un estudiante y llamabamos al método VerNombre era que llamará al método de la clase hija estudiante pero no era así. Ahora con virtual en vez de llamar al método de la clase padre llamamos al método de la clase hija por lo que el resultado nos queda así:
+Si comparamos el ejemplo anterior con el actual es el mismo menos que en la línea 10 le añadimos virtual delante. Gracias al virtual nos da un resultado totalmente diferente. Lo interesante cuando definimos antes a Pepito como un estudiante y llamamos al método VerNombre era que llamará al método de la clase hija estudiante pero no era así. Ahora con virtual en vez de llamar al método de la clase padre llamamos al método de la clase hija por lo que el resultado nos queda así:
 
 ![](./img/polimorfismo3-sol.png)
 
@@ -233,7 +233,7 @@ int main() {
 }
 ```
 
-En esta estrategia tenemos 3 partes importantes. La primera sería el contexto que nos permite utilizar las diferentes funcionalidades que necesitamos sin conocer como funcionan por detrás. Es decir, nos abstrae de la lógica de la aplicación. Luego tenemos la clase Strategy que es el padre de todas las estrategias y por último tenemos a las diferentes clases hijas que componen el conjunto de estrategias disponibles. Es decir a través de la herencia podemos usar una misma clase cambiando la interfaz que queremos en cada caso. Usando context basta con definirle la extrategia que vamos a unitilizar y la clase context ya nos permite utilizar las funcionalidades que necesitamos.
+En esta estrategia tenemos 3 partes importantes. La primera sería el contexto que nos permite utilizar las diferentes funcionalidades que necesitamos sin conocer cómo funcionan por detrás. Es decir, nos abstrae de la lógica de la aplicación. Luego tenemos la clase Strategy que es el padre de todas las estrategias y por último tenemos a las diferentes clases hijas que componen el conjunto de estrategias disponibles. Es decir, a través de la herencia podemos usar una misma clase cambiando la interfaz que queremos en cada caso. Usando context basta con definir la estrategia que vamos a utilizar y la clase context ya nos permite utilizar las funcionalidades que necesitamos.   
 
 El resultado de la ejecución es el siguiente:
 
@@ -335,7 +335,7 @@ int main() {
 }
 ```
 
-El ejemplo de estructura 1 es una continuación del ejemplo de estructura. Lo único que añade es que ahora podemos enumerar las estrategias. Como podemos ver en el main queda mucho más legible si enumeramos las estrategia. Pero la lógica es exactamente la misma.
+El ejemplo de estructura 1 es una continuación del ejemplo de estructura. Lo único que añade es que ahora podemos enumerar las estrategias. Como podemos ver en el main queda mucho más legible si enumeramos las estrategias. Pero la lógica es exactamente la misma.
 
 El resultado de la ejecución es el siguiente:
 
@@ -466,7 +466,7 @@ int main() {
 }
 ```
 
-En este último ejemplo disponemos de una última estrategia y formas de acceder a ella. Con el puntero no va a ver ningún problema, mientras el puntero a esa estrateguia exista va a funcionar. Con el objeto context depende. Al no estar todos los tipos definidos en context como es el caso de D, si decimos que la estrateguía va a ser la D va a fallar porque no contempla ese tipo. Para poder hacer uso de la estrateguia D necesitamos usar el puntero o el objeto newcontent que en la clase NewContent. Esta clase si contempla el tipo D aparte de los tres tipos previos de estrateguía que hemos visto.
+En este último ejemplo disponemos de una última estrategia y formas de acceder a ella. Con el puntero no va a ver ningún problema, mientras el puntero a esa estrategia exista va a funcionar. Con el objeto context depende. Al no estar todos los tipos definidos en context como es el caso de D, si decimos que la estrategia va a ser la D va a fallar porque no contempla ese tipo. Para poder hacer uso de la estrategia D necesitamos usar el puntero o el objeto newcontent que está en la clase NewContent. Esta clase si contempla el tipo D aparte de los tres tipos previos de estrategia que hemos visto.
 
 El resultado de la ejecución es el siguiente:
 
@@ -480,3 +480,36 @@ Utiliza el patrón estrategia (sin usar templates) para implementar dos versione
 - Versión que realiza el producto de matrices recorriendo la matriz por columnas.
 
 El programa debe tener la capacidad de generar instancias aleatorias de diferentes tamaños, de tal forma que sirvan como entrada a los algoritmos creados. Analiza el tiempo de ejecución variando el tamaño de las matrices a multiplicar, intentando extraer conclusiones sobre el comportamiento en el límite. Se debe apreciar una diferencia a nivel computacional entre versiones.
+
+1. Descripción de la arquitectura que se ha hecho
+
+![](./img/equipo.png)
+
+2. Tabla con los resultados obtenidos para los distintos tamaños de problema.
+
+| Dimensiones | Filas | Columnas |
+|---|---|---|
+| 10x10  | 2.6e-05  | 2.3e-05  |
+| 100x100  | 0.012303  | 0.016853  |
+| 200x200  | 0.097885  | 0.100128  |
+| 300x300  | 0.325133  | 0.350473  |
+| 400x400  | 0.817758  | 0.858838  |
+| 500x500  | 1.73892  | 1.62284  |
+| 600x600  | 3.1835  | 2.95022  |
+| 700x700  | 4.79097  | 4.89846  |
+| 800x800  | 7.53342  | 6.71118  |
+| 900x900  | 11.269  |   |
+| 1000x1000  | 15.3087  |   |
+| 1200x1200  | 24.7885  |   |
+| 1400x1400  | 43.4799  |   |
+| 1600x1600  | 68.1939  |   |
+| 1800x1800  | 94.5166  |   |
+| 2000x2000  | 133.717  |   |
+| 2500x2500  | 263.433  |   |
+| 3000x3000  | 477.265  |   |
+
+3. Representación gráfica
+
+
+
+4. Conclusión
